@@ -159,7 +159,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                 ),
                                 CircleAvatar(
                                   radius: 10,
-                                  backgroundColor: Colors.red,
+                                  backgroundColor: kMainColor,
                                   child: Text(
                                     '2',
                                     style: TextStyle(color: kWhite),
