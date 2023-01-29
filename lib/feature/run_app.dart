@@ -1,5 +1,5 @@
 import 'package:community_app/feature/Provider/settings.dart';
-import 'package:community_app/feature/dashboard/splash_screen/splash.dart';
+import 'package:community_app/feature/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -132,7 +132,7 @@ class MyApp extends StatelessWidget {
                         // case SampleItemListView.routeName:
                         //   return const SampleItemListView();
                         default:
-                          return const SplashScreen();
+                          return DashBoard();
                       }
                     },
                   );

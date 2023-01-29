@@ -2,6 +2,7 @@ import 'package:community_app/data/colors/colors.dart';
 import 'package:community_app/data/constrains/navigation/navigation.dart';
 import 'package:community_app/data/constrains/theme/size_constraints.dart';
 import 'package:community_app/feature/authentication/widget/textformfield.dart';
+import 'package:community_app/feature/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -139,7 +140,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 sHeight50,
                 sHeight30,
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    pushReplacementNavigation(context, DashBoard());
+                  },
                   child: Container(
                     width: MediaQuery.of(context).size.width / 1,
                     height: MediaQuery.of(context).size.height / 14,

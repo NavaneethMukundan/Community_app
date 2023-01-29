@@ -1,3 +1,5 @@
+import 'package:community_app/data/colors/colors.dart';
+import 'package:community_app/data/constrains/theme/size_constraints.dart';
 import 'package:flutter/material.dart';
 
 class CallScreen extends StatefulWidget {
@@ -10,6 +12,108 @@ class CallScreen extends StatefulWidget {
 class _CallScreenState extends State<CallScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: kMainColor,
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.search,
+              color: kWhite,
+              size: 35,
+            )),
+        title: const Center(
+          child: Text(
+            'Calls',
+            style: TextStyle(
+                fontSize: 25, color: kWhite, fontWeight: FontWeight.bold),
+          ),
+        ),
+        actions: [
+          Row(
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.add_ic_call_outlined,
+                    color: kWhite,
+                    size: 35,
+                  )),
+              sWidth10
+            ],
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            sHeight40,
+            Container(
+              height: height / 1.290,
+              width: width,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50)),
+                  color: kWhite),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Center(
+                      child: Icon(Icons.minimize),
+                    ),
+                    sHeight40,
+                    const Padding(
+                      padding: EdgeInsets.only(left: 29, bottom: 8),
+                      child: Text(
+                        'Recent',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: kBlack),
+                      ),
+                    ),
+                    ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                              leading: const CircleAvatar(
+                                radius: 35,
+                                backgroundImage: NetworkImage(
+                                    'https://img.kapook.com/u/2017/surauch/movie/jryr1.jpg'),
+                              ),
+                              title: Text(
+                                'User $index',
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              subtitle: const Text(
+                                'Hey how are you?',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: kGrey),
+                              ),
+                              trailing: IconButton(
+                                  onPressed: (() {}),
+                                  icon: const Icon(Icons.call_rounded)));
+                        },
+                        separatorBuilder: (context, index) {
+                          return const Text('');
+                        },
+                        itemCount: 30),
+                    sHeight10,
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
